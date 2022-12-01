@@ -10,7 +10,7 @@ import calendar
 
 # setting up page variables
 page_title = "yomi exquisite"
-page_icon = ":tada:"
+page_icon = Image.open("image/yomi_logo.png")
 layout = "wide"
 currency = "ksh"
 
@@ -38,6 +38,15 @@ local_css("style/style.css")
 # ---------------loading assets--------------
 logo = Image.open("image/yomi.png")
 lipstick = Image.open("image/lipstickk.png")
+lipstick_product = Image.open("image/ponds (5).jpg")
+ponds_1 = Image.open("image/ponds (4).jpg")
+mascarra = Image.open("image/images (1).jpg")
+mascarra_1 = Image.open("image/images (2).jpg")
+mascarra_2 = Image.open("image/images (3).jpg")
+mascarra_3 = Image.open("image/images (4).jpg")
+ponds_2 = Image.open("image/ponds (2).jpg")
+ponds_3 = Image.open("image/ponds (3).jpg")
+diamond_pond = Image.open("image/diapond.png")
 home_lottie = load_lottieurl("https://assets1.lottiefiles.com/packages/lf20_j6nmheu0.json")
 product_lottie = load_lottieurl("https://assets1.lottiefiles.com/packages/lf20_jpsfxfin.json")
 service_lottie = load_lottieurl("https://assets1.lottiefiles.com/packages/lf20_vchruvd5.json")
@@ -46,7 +55,7 @@ service_lottie = load_lottieurl("https://assets1.lottiefiles.com/packages/lf20_v
 # ----------setting up option menu--------
 selected = option_menu(
     menu_title=None,
-    options=["Home", "Products", "Services"],
+    options=["Home", "Shop products", "Book services"],
     icons=["house-fill", "shop-window", "truck"],
     orientation="horizontal",
 
@@ -79,6 +88,7 @@ if selected == "Home":
             st.write("[learn more >](https://getbootstrap.com/)")
         with lottie_column:
             st_lottie(home_lottie, height=300, key="home_lottie")
+            st.image(diamond_pond)
 
 
     "---"
@@ -92,6 +102,17 @@ if selected == "Home":
             """)
         with lottie_column:
             st_lottie(product_lottie, height=200, key="product_lottie")
+        col1, col2, col3, col4 = st.columns((1, 1, 1, 1))
+        col1.image(lipstick_product)
+        col2.image(ponds_1)
+        col3.image(ponds_2)
+        col4.image(ponds_3)
+        "---"
+        col5, col6, col7, col8 = st.columns((1, 1, 1, 1))
+        col5.image(mascarra)
+        col6.image(mascarra_1)
+        col7.image(mascarra_2)
+        col8.image(mascarra_3)
     "---"
     with st.container():
         lottie_column1, text_column1 = st.columns((1, 2))
@@ -107,7 +128,7 @@ if selected == "Home":
 
     with st.container():
         st.write("---")
-        st.subheader("contact us")
+        st.subheader("contact us or make an order")
         st.write("##")
         contact_form = """
          <form action="https://formsubmit.co/wanjikumwaura98@gmail.com" method="POST">
@@ -125,14 +146,19 @@ if selected == "Home":
             st.empty()
 
     # ---------products-----------
-if selected == "Products":
+if selected == "Shop products":
     image_column, price_column = st.columns(2)
     with image_column:
         st.image("image/yomi.png")
     with price_column:
         st.subheader("price 2000")
-if selected == "Services":
-    st.write("here are some of the services we offer")
+if selected == "Book services":
+    image2_column, text2_column = st.columns((1, 2))
+    st.subheader("Our services include:")
+    st.write("""make up appliance for events such as baby showers, weddings,
+    graduations and bridal showers.
+    we also do movies and tv makeup to ensure you look glamorous on set.
+    """)
 
 
 

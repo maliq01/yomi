@@ -113,6 +113,8 @@ if selected == "Home":
         col6.image(mascarra_1)
         col7.image(mascarra_2)
         col8.image(mascarra_3)
+
+
     "---"
     with st.container():
         lottie_column1, text_column1 = st.columns((1, 2))
